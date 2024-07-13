@@ -1,0 +1,34 @@
+{% extends "blog/base.html" %}
+{% block inner %}
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>News Details</h2>
+          <ol>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li>News Details</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <section class="inner-page">
+      <div class="container">
+        <h1>{{ Newsdata.title }}</h1>
+        <p>
+          {{ Newsdata.description|safe}}
+          
+        </p>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+
+{% endblock inner %}

@@ -1,0 +1,45 @@
+{% extends "blog/base.html" %}
+{% block portfolio %}
+
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio">
+      <div class="container" data-aos="fade-up">
+          <div class="section-title">
+              <h2>Portfolio</h2>
+              <p>Check our Portfolio</p>
+          </div>
+          <div class="row" data-aos="fade-up" data-aos-delay="100">
+              <div class="col-lg-12 d-flex justify-content-center">
+                  <ul id="portfolio-flters">
+                      <li data-filter="*" class="filter-active">All</li>
+                      <li data-filter=".filter-app">App</li>
+                      <li data-filter=".filter-card">Card</li>
+                      <li data-filter=".filter-web">Web</li>
+                  </ul>
+              </div>
+          </div>
+          <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+              {% for item in portfoliodata %}
+              <div class="col-lg-4 col-md-6 portfolio-item filter-{{ item.category }}">
+                  <div class="portfolio-wrap">
+                      <img src="{{ item.image.url }}" class="img-fluid" alt="">
+                      <div class="portfolio-info">
+                          <h4>{{ item.title }}</h4>
+                          <p>{{ item.category|title }}</p>
+                          <div class="portfolio-links">
+                              <a href="{{ item.image.url }}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{ item.title }}"><i class="bx bx-plus"></i></a>
+                              <a href="{% url 'portfolio_detail' item.pk %}" title="More Details"><i class="bx bx-link"></i></a>
+                              {% comment %} <a href="{% url 'portfolio_detail' %}" title="More Details"><i class="bx bx-link"></i></a> {% endcomment %}
+    
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              {% endfor %}
+          </div>
+      </div>
+    </section><!-- End Portfolio Section -->
+    
+{% endblock %}
+

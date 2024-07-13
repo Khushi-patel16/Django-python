@@ -1,0 +1,10 @@
+# from django.urls import path
+# from . import views
+# 
+# urlpatterns = [
+    # path('about/', views.about_view, name='about'),
+    # Add other URL patterns here
+# ]
+
+
+
